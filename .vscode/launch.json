@@ -12,7 +12,7 @@
             "program": "${workspaceFolder}/src/Sharpbox.Performance/bin/Release/netcoreapp3.0/Sharpbox.Performance.dll",
             "args": [
                 "--filter",
-                "*"
+                "*ArraysBenchmarks*"
             ],
             "cwd": "${workspaceFolder}/src/Sharpbox.Performance",
             "console": "internalConsole",
