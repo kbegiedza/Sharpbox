@@ -24,7 +24,7 @@ namespace Orlen.Backend.Tests.Performance
             _multiDimArray = new int[Height, Width];
 
             _jaggedArray = new int[Height][];
-            for (int i = 0; i < Width; ++i)
+            for (int i = 0; i < Height; ++i)
             {
                 _jaggedArray[i] = new int[Width];
             }

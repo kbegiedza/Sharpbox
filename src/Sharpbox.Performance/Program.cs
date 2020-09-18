@@ -1,5 +1,4 @@
-﻿using System;
-using BenchmarkDotNet.Configs;
+﻿using BenchmarkDotNet.Configs;
 using BenchmarkDotNet.Diagnosers;
 using BenchmarkDotNet.Jobs;
 using BenchmarkDotNet.Running;
@@ -11,11 +10,14 @@ namespace Sharpbox.Performance
     {
         public static void Main(string[] args)
         {
+            var coreJob = Job.Default
+                             .WithToolchain(CsProjCoreToolchain.NetCoreApp50);
             var config = DefaultConfig.Instance
-                            .With(Job.Default.With(CsProjCoreToolchain.NetCoreApp30))
-                            .With(MemoryDiagnoser.Default);
+                                      .AddJob(coreJob)
+                                      .AddDiagnoser(MemoryDiagnoser.Default);
 
-            BenchmarkSwitcher.FromAssembly(typeof(Program).Assembly).Run(args, config);
+            BenchmarkSwitcher.FromAssembly(typeof(Program).Assembly)
+                             .Run(args, config);
         }
     }
 }
