@@ -1,12 +1,5 @@
-﻿using System;
+﻿using Sharpbox.Demo;
 
-namespace Sharpbox.Demo
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Hello World!");
-        }
-    }
-}
+// hello ~python~ C#!
+var demo = new RecordsDemo();
+demo.Run();
