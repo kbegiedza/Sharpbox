@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26124.0
 MinimumVisualStudioVersion = 15.0.26124.0
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sharpbox.Performance", "src/Sharpbox.Performance/Sharpbox.Performance.csproj", "{D19AA08A-E26B-4313-8BF4-E53CAB9C7B23}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sharpbox.Performance", "src\Sharpbox.Performance\Sharpbox.Performance.csproj", "{D19AA08A-E26B-4313-8BF4-E53CAB9C7B23}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{5D56EF88-B436-4C55-A8EB-51BCECF3A7AA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sharpbox.Demo", "src\Sharpbox.Demo\Sharpbox.Demo.csproj", "{971EC4A6-79AA-41BD-840A-A124452C9C0D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -30,5 +34,20 @@ Global
 		{D19AA08A-E26B-4313-8BF4-E53CAB9C7B23}.Release|x64.Build.0 = Release|Any CPU
 		{D19AA08A-E26B-4313-8BF4-E53CAB9C7B23}.Release|x86.ActiveCfg = Release|Any CPU
 		{D19AA08A-E26B-4313-8BF4-E53CAB9C7B23}.Release|x86.Build.0 = Release|Any CPU
+		{971EC4A6-79AA-41BD-840A-A124452C9C0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{971EC4A6-79AA-41BD-840A-A124452C9C0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{971EC4A6-79AA-41BD-840A-A124452C9C0D}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{971EC4A6-79AA-41BD-840A-A124452C9C0D}.Debug|x64.Build.0 = Debug|Any CPU
+		{971EC4A6-79AA-41BD-840A-A124452C9C0D}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{971EC4A6-79AA-41BD-840A-A124452C9C0D}.Debug|x86.Build.0 = Debug|Any CPU
+		{971EC4A6-79AA-41BD-840A-A124452C9C0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{971EC4A6-79AA-41BD-840A-A124452C9C0D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{971EC4A6-79AA-41BD-840A-A124452C9C0D}.Release|x64.ActiveCfg = Release|Any CPU
+		{971EC4A6-79AA-41BD-840A-A124452C9C0D}.Release|x64.Build.0 = Release|Any CPU
+		{971EC4A6-79AA-41BD-840A-A124452C9C0D}.Release|x86.ActiveCfg = Release|Any CPU
+		{971EC4A6-79AA-41BD-840A-A124452C9C0D}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{971EC4A6-79AA-41BD-840A-A124452C9C0D} = {5D56EF88-B436-4C55-A8EB-51BCECF3A7AA}
 	EndGlobalSection
 EndGlobal

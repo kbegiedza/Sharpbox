@@ -5,6 +5,17 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Demo",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/src/Sharpbox.Demo/bin/Debug/net5.0/Sharpbox.Demo.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/src/Sharpbox.Performance",
+            "console": "internalConsole",
+            "stopAtEntry": false
+        },
+        {
             "name": "Performance Tests - All",
             "type": "coreclr",
             "request": "launch",
