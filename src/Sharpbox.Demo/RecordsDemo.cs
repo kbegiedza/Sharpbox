@@ -1,11 +1,56 @@
 using System;
 using System.Text.Json;
+using System.Threading.Tasks;
 
 namespace Sharpbox.Demo
 {
     public class RecordsDemo : IDemo
     {
-        public void Run()
+        public Task RunAsync()
+        {
+            ProcessRecords();
+
+            ProcessRecordsSerialization();
+
+            return Task.CompletedTask;
+        }
+
+        private static void ProcessRecordsSerialization()
+        {
+            var detections = new[]
+            {
+                new Detection("cat", 0.6),
+                new Detection("dog", 0.94),
+                new Detection("person", 0.9),
+            };
+
+            var serializeOptions = new JsonSerializerOptions
+            {
+                WriteIndented = true
+            };
+
+            var serializedDetections = JsonSerializer.Serialize(detections, serializeOptions);
+            var deserializedDetections = JsonSerializer.Deserialize<Detection[]>(serializedDetections);
+
+            if (deserializedDetections != null)
+            {
+                for (var i = 0; i < deserializedDetections.Length; ++i)
+                {
+                    if (deserializedDetections[i] != detections[i])
+                    {
+                        throw new InvalidOperationException($"Wrong item at {i} position");
+                    }
+                }
+            }
+            else
+            {
+                throw new InvalidOperationException($"Cannot parse? huh...");
+            }
+
+            Console.WriteLine("Serialized & deserialized records");
+        }
+
+        private static void ProcessRecords()
         {
             var firstPerson = new Detection("person", 0.9);
             var secondPerson = new Detection("person", 0.9);
