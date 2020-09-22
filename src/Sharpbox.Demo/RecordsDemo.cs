@@ -9,7 +9,6 @@ namespace Sharpbox.Demo
         public Task RunAsync()
         {
             ProcessRecords();
-
             ProcessRecordsSerialization();
 
             return Task.CompletedTask;
