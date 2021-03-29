@@ -60,7 +60,14 @@ namespace Sharpbox.Demo
             Console.WriteLine($"Are 2 and 3 records equals? {secondPerson == newPerson}");
 
             var firstExtended = new ExtendedDetection("person", 0.9, "area-42");
-            Console.WriteLine($"Are firstExtended and first records equals? {firstExtended == secondPerson}");
+            Console.WriteLine($"Are firstExtended and second record equals? {firstExtended == secondPerson}");
+
+            var firstFull = new FullDetection("name", 1.0, Guid.NewGuid())
+            {
+                Date = DateTimeOffset.UtcNow
+            };
+
+            Console.WriteLine($"Are {nameof(firstFull)} and first record equals? {firstFull == firstPerson}");
         }
 
         public record Detection(string Name, double Probability);
@@ -70,7 +77,7 @@ namespace Sharpbox.Demo
         public record FullDetection(string Name, double Probability, Guid Location)
             : Detection(Name, Probability)
         {
-            DateTimeOffset Date { get; init; }
+            public DateTimeOffset Date { get; init; }
         }
     }
 }
