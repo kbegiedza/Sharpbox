@@ -16,14 +16,14 @@
             "stopAtEntry": false
         },
         {
-            "name": "Performance Tests - All",
+            "name": "Performance Test",
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build Release",
             "program": "${workspaceFolder}/src/Sharpbox.Performance/bin/Release/net5.0/Sharpbox.Performance.dll",
             "args": [
                 "--filter",
-                "*ArraysBenchmarks*"
+                "*ChannelsBenchmark*"
             ],
             "cwd": "${workspaceFolder}/src/Sharpbox.Performance",
             "console": "internalConsole",
