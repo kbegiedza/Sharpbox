@@ -1,7 +1,4 @@
-﻿using System;
-using System.Threading;
-using System.Threading.Channels;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 using Sharpbox.Demo;
 
 var services = new ServiceCollection();
