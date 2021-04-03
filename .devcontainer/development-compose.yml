@@ -1,0 +1,45 @@
+version: "3.9"
+
+networks:
+  development:
+    driver: bridge
+
+volumes:
+  grafana-data:
+
+services:
+  vscode:
+    container_name: developer
+    image: "ursanon/dotnet:sdk-5.0-buster-slim"
+    ports:
+      - "5000:5000"
+    volumes:
+      - ../:/workspace:delegated
+      - ~/.ssh:/root/.ssh-localhost:ro
+      - ~/.kube:/root/.kube-localhost:ro
+      - /var/run/docker.sock:/var/run/docker.sock
+    command: /bin/sh -c "while sleep 1000; do :; done"
+
+  grafana:
+    container_name: grafana
+    image: bitnami/grafana:latest
+    volumes:
+      - ./config/grafana/grafana.ini:/opt/bitnami/grafana/conf/grafana.ini
+      - grafana-data:/opt/bitnami/grafana/data/
+    ports:
+      - "3000:3000"
+      - "3100:3100"
+    depends_on:
+      - prometheus
+    networks:
+      - development
+
+  prometheus:
+    container_name: prometheus
+    image: bitnami/prometheus:latest
+    volumes:
+      - ./config/prometheus.yaml:/opt/bitnami/prometheus/conf/prometheus.yml
+    ports:
+      - "9090:9090"
+    networks:
+      - development

@@ -1,14 +1,11 @@
 {
     "name": "Sharpbox",
-    "image": "ursanon/dotnet:sdk-5.0-buster-slim",
-    "runArgs": [
-        "-v",
-        "${env:HOME}${env:USERPROFILE}/.ssh:/root/.ssh-host:ro",
-        "-v",
-        "${env:HOME}${env:USERPROFILE}/.kube:/root/.kube-host:ro",
-    ],
+    "workspaceFolder": "/workspace",
+    "service": "vscode",
+    "dockerComposeFile": "./development-compose.yml",
     "extensions": [
         "ms-dotnettools.csharp"
     ],
     "postCreateCommand": "mkdir -p ~/.ssh && cp -r ~/.ssh-host/* ~/.ssh && chmod 700 ~/.ssh && chmod 600 ~/.ssh/* && mkdir -p ~/.kube && cp -r ~/.kube-host/* ~/.kube",
+    "shutdownAction": "stopCompose"
 }

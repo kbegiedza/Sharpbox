@@ -1,0 +1,15 @@
+global:
+  scrape_interval: 1s
+
+  external_labels:
+    monitor: "developer-monitor"
+
+scrape_configs:
+  - job_name: "development"
+    scrape_interval: 1s
+
+    static_configs:
+      - targets: ["developer:80"]
+#
+# data-source:
+# http://prometheus:9090
