@@ -6,6 +6,6 @@
     "extensions": [
         "ms-dotnettools.csharp"
     ],
-    "postCreateCommand": "mkdir -p ~/.ssh && cp -r ~/.ssh-host/* ~/.ssh && chmod 700 ~/.ssh && chmod 600 ~/.ssh/* && mkdir -p ~/.kube && cp -r ~/.kube-host/* ~/.kube",
+    "postCreateCommand": "",
     "shutdownAction": "stopCompose"
 }

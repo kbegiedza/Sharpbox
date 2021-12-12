@@ -9,7 +9,7 @@
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
-            "program": "${workspaceFolder}/src/Sharpbox.Demo/bin/Debug/net5.0/Sharpbox.Demo.dll",
+            "program": "${workspaceFolder}/src/Sharpbox.Demo/bin/Debug/net6.0/Sharpbox.Demo.dll",
             "args": [],
             "cwd": "${workspaceFolder}/src/Sharpbox.Performance",
             "console": "internalConsole",
@@ -20,7 +20,7 @@
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build Release",
-            "program": "${workspaceFolder}/src/Sharpbox.Performance/bin/Release/net5.0/Sharpbox.Performance.dll",
+            "program": "${workspaceFolder}/src/Sharpbox.Performance/bin/Release/net6.0/Sharpbox.Performance.dll",
             "args": [
                 "--filter",
                 "*ChannelsBenchmark*"

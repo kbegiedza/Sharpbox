@@ -10,13 +10,13 @@ volumes:
 services:
   vscode:
     container_name: developer
-    image: "ursanon/dotnet:sdk-5.0-buster-slim"
+    build:
+      context: .
+      dockerfile: Dockerfile
     ports:
       - "5000:5000"
     volumes:
       - ../:/workspace:delegated
-      - ~/.ssh:/root/.ssh-localhost:ro
-      - ~/.kube:/root/.kube-localhost:ro
       - /var/run/docker.sock:/var/run/docker.sock
     command: /bin/sh -c "while sleep 1000; do :; done"
 
