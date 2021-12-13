@@ -1,4 +1,4 @@
-using System.Threading.Tasks;
+global using System.Threading.Tasks;
 
 namespace Sharpbox.Demo
 {

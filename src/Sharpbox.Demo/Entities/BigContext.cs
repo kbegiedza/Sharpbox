@@ -1,7 +1,7 @@
 using System;
 using System.Linq;
 
-namespace Sharpbox.Demo
+namespace Sharpbox.Demo.Entities
 {
     public class BigContext : IDisposable
     {

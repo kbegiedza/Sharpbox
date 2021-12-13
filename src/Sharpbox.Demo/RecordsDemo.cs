@@ -1,6 +1,4 @@
-using System;
-using System.Text.Json;
-using System.Threading.Tasks;
+global using System;
 
 namespace Sharpbox.Demo
 {

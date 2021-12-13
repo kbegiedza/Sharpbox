@@ -2,6 +2,7 @@ using System.Threading.Channels;
 using System.Threading.Tasks;
 using BenchmarkDotNet.Attributes;
 using Sharpbox.Demo;
+using Sharpbox.Demo.Entities;
 
 namespace Sharpbox.Performance
 {
@@ -18,6 +19,7 @@ namespace Sharpbox.Performance
             {
                 FullMode = BoundedChannelFullMode.DropOldest,
             };
+
             var channel = Channel.CreateBounded<BigContext>(options);
             var reader = channel.Reader;
             var writer = channel.Writer;
