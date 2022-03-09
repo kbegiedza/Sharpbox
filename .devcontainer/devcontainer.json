@@ -6,6 +6,5 @@
     "extensions": [
         "ms-dotnettools.csharp"
     ],
-    "postCreateCommand": "",
     "shutdownAction": "stopCompose"
 }

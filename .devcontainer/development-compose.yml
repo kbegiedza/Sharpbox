@@ -10,10 +10,14 @@ volumes:
 services:
   vscode:
     container_name: developer
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:80
     build:
       context: .
       dockerfile: Dockerfile
     ports:
+      - "80:80"
       - "5000:5000"
     volumes:
       - ../:/workspace:delegated
