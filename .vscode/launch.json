@@ -5,13 +5,35 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Run Silo",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/src/Sharpbox.Silo/bin/Debug/net6.0/Sharpbox.Silo.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/src/Sharpbox.Silo",
+            "console": "internalConsole",
+            "stopAtEntry": false
+        },
+        {
+            "name": "Run Client",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/src/Sharpbox.Client/bin/Debug/net6.0/Sharpbox.Client.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/src/Sharpbox.Client",
+            "console": "internalConsole",
+            "stopAtEntry": false
+        },
+        {
             "name": "Demo",
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
             "program": "${workspaceFolder}/src/Sharpbox.Demo/bin/Debug/net6.0/Sharpbox.Demo.dll",
             "args": [],
-            "cwd": "${workspaceFolder}/src/Sharpbox.Performance",
+            "cwd": "${workspaceFolder}/src/Sharpbox.Demo",
             "console": "internalConsole",
             "stopAtEntry": false
         },
