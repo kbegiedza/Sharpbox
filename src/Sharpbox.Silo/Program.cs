@@ -8,12 +8,11 @@ using var host = Host.CreateDefaultBuilder()
                          siloBuilder.UseLocalhostClustering();
                          siloBuilder.UseDashboard(options =>
                          {
-                             options.Username = "Sharpbox";
-                             options.Password = "Sharpbox123!";
-                             options.Host = "*";
-                             options.Port = 8080;
                              options.HostSelf = true;
                          });
+
+                         siloBuilder.AddSimpleMessageStreamProvider("SMSProvider")
+                                    .AddMemoryGrainStorage("PubSubStore");
 
                          siloBuilder.ConfigureApplicationParts(p => p.AddFromApplicationBaseDirectory());
                      })
