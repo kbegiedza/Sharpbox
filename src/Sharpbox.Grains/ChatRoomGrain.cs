@@ -5,14 +5,17 @@ namespace Sharpbox.Grains
 {
     public class ChatRoomGrain : Grain, IChatRoomGrain
     {
-        private HashSet<Guid> _users;
-        private IAsyncStream<string> _stream;
+        private readonly HashSet<Guid> _users;
+        private IAsyncStream<string>? _stream;
+
+        public ChatRoomGrain()
+        {
+            _users = new HashSet<Guid>();
+        }
 
         public override async Task OnActivateAsync()
         {
             await base.OnActivateAsync();
-
-            _users = new HashSet<Guid>();
 
             var streamProvider = GetStreamProvider("SMSProvider");
             _stream = streamProvider.GetStream<string>(Guid.Empty, "ChatRoomStream");
@@ -37,7 +40,10 @@ namespace Sharpbox.Grains
 
         public async Task SendMessage(string message)
         {
-            await _stream.OnNextAsync(message);
+            if (_stream != null)
+            {
+                await _stream.OnNextAsync(message);
+            }
         }
     }
 }
