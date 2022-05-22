@@ -55,7 +55,7 @@ namespace Sharpbox.Grains
             return Task.CompletedTask;
         }
 
-        public Task OnNextAsync(string item, StreamSequenceToken token = null)
+        public Task OnNextAsync(string item, StreamSequenceToken token)
         {
             _logger.LogInformation($"Scribe: {item}");
 
