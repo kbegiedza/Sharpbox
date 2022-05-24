@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: sharpbox-graceful
+  namespace: sharpbox
+spec:
+  containers:
+  - image: ghcr.io/kbegiedza/sharpbox:master
+    name: sharpbox-graceful
+    command: ["dotnet"]
+    args: ["Sharpbox.Graceful.dll", "console"]
+  terminationGracePeriodSeconds: 60
