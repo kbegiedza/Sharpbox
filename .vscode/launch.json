@@ -11,7 +11,7 @@
             "preLaunchTask": "build",
             "program": "${workspaceFolder}/src/Sharpbox.Graceful/bin/Debug/net6.0/Sharpbox.Graceful.dll",
             "args": [
-                "console"
+                "console-host"
             ],
             "cwd": "${workspaceFolder}/src/Sharpbox.Graceful",
             "console": "internalConsole",
