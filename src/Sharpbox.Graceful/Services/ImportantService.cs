@@ -3,20 +3,32 @@ using Microsoft.Extensions.Logging;
 
 namespace Sharpbox.Graceful.Services
 {
-    public class ImportantService : BackgroundService, IImportantService
+    public sealed class ImportantService : BackgroundService, IImportantService
     {
         private readonly ILogger _logger;
-        private readonly IHostApplicationLifetime _applicationLifetime;
+
+        private readonly CancellationTokenRegistration _onStartedRegistration;
+        private readonly CancellationTokenRegistration _onStoppedRegistration;
+        private readonly CancellationTokenRegistration _onStoppingRegistration;
+
 
         public ImportantService(ILogger<ImportantService> logger,
                                 IHostApplicationLifetime applicationLifetime)
         {
             _logger = logger;
-            _applicationLifetime = applicationLifetime;
 
-            _applicationLifetime.ApplicationStarted.Register(OnStarted);
-            _applicationLifetime.ApplicationStopping.Register(OnStopping);
-            _applicationLifetime.ApplicationStopped.Register(OnStopped);
+            _onStartedRegistration = applicationLifetime.ApplicationStarted.Register(OnStarted);
+            _onStoppedRegistration = applicationLifetime.ApplicationStopped.Register(OnStopped);
+            _onStoppingRegistration = applicationLifetime.ApplicationStopping.Register(OnStopping);
+        }
+
+        public override void Dispose()
+        {
+            _onStartedRegistration.Dispose();
+            _onStoppedRegistration.Dispose();
+            _onStoppingRegistration.Dispose();
+
+            base.Dispose();
         }
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
