@@ -10,6 +10,13 @@ namespace Sharpbox.Client
 {
     public class SendMessageService : BackgroundService
     {
+        private readonly ILogger _logger;
+
+        public SendMessageService(ILogger<SendMessageService> logger)
+        {
+            _logger = logger;
+        }
+
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
             try
@@ -28,7 +35,16 @@ namespace Sharpbox.Client
                 {
                     await Task.Delay(TimeSpan.FromSeconds(0.5));
 
-                    await chatGrain.SendMessage(Random.Shared.Next().ToString());
+                    var tasks = new List<Task>();
+
+                    for (var i = 0; i < 5; ++i)
+                    {
+                        _logger.LogInformation($"Sending message from {i}");
+
+                        tasks.Add(chatGrain.SendMessage(i.ToString()));
+                    }
+
+                    await Task.WhenAll(tasks);
                 }
             }
             catch (Exception ex)
