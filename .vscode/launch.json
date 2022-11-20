@@ -9,7 +9,7 @@
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
-            "program": "${workspaceFolder}/src/Sharpbox.Graceful/bin/Debug/net6.0/Sharpbox.Graceful.dll",
+            "program": "${workspaceFolder}/src/Sharpbox.Graceful/bin/Debug/net7.0/Sharpbox.Graceful.dll",
             "args": [
                 "console-host"
             ],
@@ -22,7 +22,7 @@
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
-            "program": "${workspaceFolder}/src/Sharpbox.Silo/bin/Debug/net6.0/Sharpbox.Silo.dll",
+            "program": "${workspaceFolder}/src/Sharpbox.Silo/bin/Debug/net7.0/Sharpbox.Silo.dll",
             "args": [],
             "cwd": "${workspaceFolder}/src/Sharpbox.Silo",
             "console": "internalConsole",
@@ -33,7 +33,7 @@
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
-            "program": "${workspaceFolder}/src/Sharpbox.Client/bin/Debug/net6.0/Sharpbox.Client.dll",
+            "program": "${workspaceFolder}/src/Sharpbox.Client/bin/Debug/net7.0/Sharpbox.Client.dll",
             "args": [],
             "cwd": "${workspaceFolder}/src/Sharpbox.Client",
             "console": "internalConsole",
@@ -44,7 +44,7 @@
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
-            "program": "${workspaceFolder}/src/Sharpbox.Demo/bin/Debug/net6.0/Sharpbox.Demo.dll",
+            "program": "${workspaceFolder}/src/Sharpbox.Demo/bin/Debug/net7.0/Sharpbox.Demo.dll",
             "args": [],
             "cwd": "${workspaceFolder}/src/Sharpbox.Demo",
             "console": "internalConsole",
@@ -55,7 +55,7 @@
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build Release",
-            "program": "${workspaceFolder}/src/Sharpbox.Performance/bin/Release/net6.0/Sharpbox.Performance.dll",
+            "program": "${workspaceFolder}/src/Sharpbox.Performance/bin/Release/net7.0/Sharpbox.Performance.dll",
             "args": [
                 "--filter",
                 "*ChannelsBenchmark*"

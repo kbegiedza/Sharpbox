@@ -1,9 +1,6 @@
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using Orleans;
-using Orleans.Configuration;
-using Orleans.Hosting;
+using Orleans.Runtime;
 using Sharpbox.Grains;
 
 namespace Sharpbox.Client
@@ -11,23 +8,25 @@ namespace Sharpbox.Client
     public class SendMessageService : BackgroundService
     {
         private readonly ILogger _logger;
+        private readonly IClusterClient _clusterClient;
 
-        public SendMessageService(ILogger<SendMessageService> logger)
+        public SendMessageService(ILogger<SendMessageService> logger, IClusterClient clusterClient)
         {
             _logger = logger;
+            _clusterClient = clusterClient;
         }
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
             try
             {
-                using var client = await ConnectAsync();
+                var chatGrain = _clusterClient.GetGrain<IChatRoomGrain>(Guid.Empty);
 
-                var chatGrain = client.GetGrain<IChatRoomGrain>(Guid.Empty);
+                var provider = _clusterClient.GetStreamProvider("MSStream");
 
-                var provider = client.GetStreamProvider("SMSProvider");
+                var streamId = StreamId.Create("ChatRoomStream", Guid.Empty);
 
-                var stream = provider.GetStream<string>(Guid.Empty, "ChatRoomStream");
+                var stream = provider.GetStream<string>(streamId);
 
                 await stream.SubscribeAsync(new ChatObserver());
 
@@ -51,24 +50,6 @@ namespace Sharpbox.Client
             {
                 Console.WriteLine($"{ex.Message}");
             }
-        }
-
-        private static async Task<IClusterClient> ConnectAsync()
-        {
-            var client = new ClientBuilder()
-                .UseLocalhostClustering()
-                .Configure<ClusterOptions>(options =>
-                {
-                    options.ClusterId = "dev";
-                    options.ServiceId = "dev";
-                })
-                .AddSimpleMessageStreamProvider("SMSProvider")
-                .ConfigureLogging(logging => logging.AddConsole())
-                .Build();
-
-            await client.Connect();
-
-            return client;
         }
     }
 }

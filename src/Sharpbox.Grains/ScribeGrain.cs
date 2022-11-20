@@ -17,27 +17,27 @@ namespace Sharpbox.Grains
             _logger = logger;
         }
 
-        public override async Task OnActivateAsync()
+        public override async Task OnActivateAsync(CancellationToken cancellationToken)
         {
-            var provider = GetStreamProvider("SMSProvider");
-            _stream = provider.GetStream<string>(this.GetPrimaryKey(), "ChatRoomStream");
+            await base.OnActivateAsync(cancellationToken);
+
+            var streamProvider = this.GetStreamProvider("MSStream");
+            _stream = streamProvider.GetStream<string>("ChatRoomStream", this.GetPrimaryKey());
 
             if (_stream != null)
             {
                 _handle = await _stream.SubscribeAsync(OnNextAsync);
             }
-
-            await base.OnActivateAsync();
         }
 
-        public override async Task OnDeactivateAsync()
+        public override async Task OnDeactivateAsync(DeactivationReason reason, CancellationToken cancellationToken)
         {
             if (_handle != null)
             {
                 await _handle.UnsubscribeAsync();
             }
 
-            await base.OnDeactivateAsync();
+            await base.OnDeactivateAsync(reason, cancellationToken);
         }
 
 
@@ -55,7 +55,7 @@ namespace Sharpbox.Grains
             return Task.CompletedTask;
         }
 
-        public async Task OnNextAsync(string item, StreamSequenceToken token)
+        public async Task OnNextAsync(string item, StreamSequenceToken? token)
         {
             _logger.LogInformation($"Scribe: {item}");
 

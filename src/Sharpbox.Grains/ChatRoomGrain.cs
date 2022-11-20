@@ -1,4 +1,3 @@
-using Orleans;
 using Orleans.Streams;
 
 namespace Sharpbox.Grains
@@ -13,12 +12,12 @@ namespace Sharpbox.Grains
             _users = new HashSet<Guid>();
         }
 
-        public override async Task OnActivateAsync()
+        public override async Task OnActivateAsync(CancellationToken cancellationToken)
         {
-            await base.OnActivateAsync();
+            await base.OnActivateAsync(cancellationToken);
 
-            var streamProvider = GetStreamProvider("SMSProvider");
-            _stream = streamProvider.GetStream<string>(Guid.Empty, "ChatRoomStream");
+            var streamProvider = this.GetStreamProvider("MSStream");
+            _stream = streamProvider.GetStream<string>("ChatRoomStream", Guid.Empty);
         }
 
         public Task JoinAsync(Guid user)

@@ -1,6 +1,6 @@
-﻿using Orleans.Hosting;
-using Microsoft.Extensions.Hosting;
+﻿using Microsoft.Extensions.Hosting;
 using Orleans;
+using Orleans.Hosting;
 
 using var host = Host.CreateDefaultBuilder()
                      .UseOrleans(siloBuilder =>
@@ -11,10 +11,10 @@ using var host = Host.CreateDefaultBuilder()
                              options.HostSelf = true;
                          });
 
-                         siloBuilder.AddSimpleMessageStreamProvider("SMSProvider")
-                                    .AddMemoryGrainStorage("PubSubStore");
+                         siloBuilder.AddStreaming();
+                         siloBuilder.AddMemoryStreams("MSStream");
 
-                         siloBuilder.ConfigureApplicationParts(p => p.AddFromApplicationBaseDirectory());
+                         siloBuilder.AddMemoryGrainStorage("PubSubStore");
                      })
                      .UseConsoleLifetime()
                      .Build();

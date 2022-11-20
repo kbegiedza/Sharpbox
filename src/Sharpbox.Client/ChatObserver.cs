@@ -18,7 +18,7 @@ namespace Sharpbox.Client
             return Task.CompletedTask;
         }
 
-        public Task OnNextAsync(string item, StreamSequenceToken token)
+        public Task OnNextAsync(string item, StreamSequenceToken? token)
         {
             Console.WriteLine(item);
 
