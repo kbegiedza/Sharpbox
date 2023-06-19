@@ -8,6 +8,7 @@ namespace Sharpbox.Api.Recipies.Entities
 
         required public string Description { get; set; }
 
+        // should store snapshot of ingredients at time of creation
         required public List<Ingredient> Ingredients { get; set; }
     }
 }
