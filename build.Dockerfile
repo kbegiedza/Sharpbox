@@ -7,6 +7,7 @@ WORKDIR /app
 
 COPY Sharpbox.sln ./
 COPY src/Sharpbox.Api/*.csproj ./src/Sharpbox.Api/
+COPY src/Sharpbox.App/*.csproj ./src/Sharpbox.App/
 COPY src/Sharpbox.Client/*.csproj ./src/Sharpbox.Client/
 COPY src/Sharpbox.Demo/*.csproj ./src/Sharpbox.Demo/
 COPY src/Sharpbox.Graceful/*.csproj ./src/Sharpbox.Graceful/
