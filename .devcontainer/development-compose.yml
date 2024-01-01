@@ -13,7 +13,7 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=http://+:80
-    image: ghcr.io/ulfsoft-harbour/dotnet/sdk-vscode:7.0
+    image: ghcr.io/ulfsoft-harbour/dotnet/sdk-vscode:8.0
     ports:
       - "80:80"
       - "5000:5000"
@@ -21,4 +21,4 @@ services:
       - ../:/workspace:delegated
       - ${HOME}/.kube/:/root/.kube:ro
       - /var/run/docker.sock:/var/run/docker.sock
-    command: /bin/sh -c "while sleep 1000; do :; done"
+    command: /bin/sh -c "sleep infinity"

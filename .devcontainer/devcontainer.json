@@ -1,10 +1,12 @@
 {
-    "name": "Sharpbox",
-    "workspaceFolder": "/workspace",
-    "service": "vscode",
-    "dockerComposeFile": "./development-compose.yml",
-    "extensions": [
-        "ms-dotnettools.csharp"
-    ],
+  "name": "Sharpbox",
+  "workspaceFolder": "/workspace",
+  "service": "vscode",
+  "dockerComposeFile": "./development-compose.yml",
+  "customizations": {
+    "vscode": {
+      "extensions": ["ms-dotnettools.csdevkit"]
+    },
     "shutdownAction": "stopCompose"
+  }
 }
