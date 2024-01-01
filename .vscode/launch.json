@@ -1,68 +1,63 @@
 {
-    // Use IntelliSense to learn about possible attributes.
-    // Hover to view descriptions of existing attributes.
-    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
-    "version": "0.2.0",
-    "configurations": [
-        {
-            "name": "Run Graceful",
-            "type": "coreclr",
-            "request": "launch",
-            "preLaunchTask": "build",
-            "program": "${workspaceFolder}/src/Sharpbox.Graceful/bin/Debug/net7.0/Sharpbox.Graceful.dll",
-            "args": [
-                "console-host"
-            ],
-            "cwd": "${workspaceFolder}/src/Sharpbox.Graceful",
-            "console": "internalConsole",
-            "stopAtEntry": false
-        },
-        {
-            "name": "Run Silo",
-            "type": "coreclr",
-            "request": "launch",
-            "preLaunchTask": "build",
-            "program": "${workspaceFolder}/src/Sharpbox.Silo/bin/Debug/net7.0/Sharpbox.Silo.dll",
-            "args": [],
-            "cwd": "${workspaceFolder}/src/Sharpbox.Silo",
-            "console": "internalConsole",
-            "stopAtEntry": false
-        },
-        {
-            "name": "Run Client",
-            "type": "coreclr",
-            "request": "launch",
-            "preLaunchTask": "build",
-            "program": "${workspaceFolder}/src/Sharpbox.Client/bin/Debug/net7.0/Sharpbox.Client.dll",
-            "args": [],
-            "cwd": "${workspaceFolder}/src/Sharpbox.Client",
-            "console": "internalConsole",
-            "stopAtEntry": false
-        },
-        {
-            "name": "Demo",
-            "type": "coreclr",
-            "request": "launch",
-            "preLaunchTask": "build",
-            "program": "${workspaceFolder}/src/Sharpbox.Demo/bin/Debug/net7.0/Sharpbox.Demo.dll",
-            "args": [],
-            "cwd": "${workspaceFolder}/src/Sharpbox.Demo",
-            "console": "internalConsole",
-            "stopAtEntry": false
-        },
-        {
-            "name": "Performance Test",
-            "type": "coreclr",
-            "request": "launch",
-            "preLaunchTask": "build Release",
-            "program": "${workspaceFolder}/src/Sharpbox.Performance/bin/Release/net7.0/Sharpbox.Performance.dll",
-            "args": [
-                "--filter",
-                "*ChannelsBenchmark*"
-            ],
-            "cwd": "${workspaceFolder}/src/Sharpbox.Performance",
-            "console": "internalConsole",
-            "stopAtEntry": false
-        }
-    ]
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Run Graceful",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build",
+      "program": "${workspaceFolder}/src/Sharpbox.Graceful/bin/Debug/net8.0/Sharpbox.Graceful.dll",
+      "args": ["console-host"],
+      "cwd": "${workspaceFolder}/src/Sharpbox.Graceful",
+      "console": "internalConsole",
+      "stopAtEntry": false
+    },
+    {
+      "name": "Run Silo",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build",
+      "program": "${workspaceFolder}/src/Sharpbox.Silo/bin/Debug/net8.0/Sharpbox.Silo.dll",
+      "args": [],
+      "cwd": "${workspaceFolder}/src/Sharpbox.Silo",
+      "console": "internalConsole",
+      "stopAtEntry": false
+    },
+    {
+      "name": "Run Client",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build",
+      "program": "${workspaceFolder}/src/Sharpbox.Client/bin/Debug/net8.0/Sharpbox.Client.dll",
+      "args": [],
+      "cwd": "${workspaceFolder}/src/Sharpbox.Client",
+      "console": "internalConsole",
+      "stopAtEntry": false
+    },
+    {
+      "name": "Demo",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build",
+      "program": "${workspaceFolder}/src/Sharpbox.Demo/bin/Debug/net8.0/Sharpbox.Demo.dll",
+      "args": [],
+      "cwd": "${workspaceFolder}/src/Sharpbox.Demo",
+      "console": "internalConsole",
+      "stopAtEntry": false
+    },
+    {
+      "name": "Performance Test",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build Release",
+      "program": "${workspaceFolder}/src/Sharpbox.Performance/bin/Release/net8.0/Sharpbox.Performance.dll",
+      "args": ["--filter", "*ChannelsBenchmark*"],
+      "cwd": "${workspaceFolder}/src/Sharpbox.Performance",
+      "console": "internalConsole",
+      "stopAtEntry": false
+    }
+  ]
 }
