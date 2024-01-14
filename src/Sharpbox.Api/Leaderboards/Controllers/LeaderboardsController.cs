@@ -3,8 +3,15 @@
 namespace Sharpbox.Api.Leaderboards.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
+
     public class LeaderboardsController : ControllerBase
     {
+        private readonly ILogger _logger;
+
+        public LeaderboardsController(ILogger<LeaderboardsController> logger)
+        {
+            _logger = logger;
+        }
     }
 }
