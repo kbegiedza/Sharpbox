@@ -1,7 +1,8 @@
-﻿namespace Sharpbox.Api.Core.Persistence;
-
-public interface IEntity<TIdentifier>
-    where TIdentifier : notnull
+﻿namespace Sharpbox.Api.Core.Persistence
 {
-    TIdentifier Id { get; }
+    public interface IEntity<TIdentifier>
+        where TIdentifier : notnull
+    {
+        TIdentifier Id { get; }
+    }
 }

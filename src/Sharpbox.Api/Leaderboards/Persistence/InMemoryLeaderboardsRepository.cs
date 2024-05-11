@@ -1,26 +1,9 @@
-﻿using Sharpbox.Api.Leaderboards.Core;
+﻿using Sharpbox.Api.Core.Persistence;
+using Sharpbox.Api.Leaderboards.Entities;
 
-namespace Sharpbox.Api.Leaderboards.Persistence;
-
-public class InMemoryLeaderboardsRepository : ILeaderboardsRepository
+namespace Sharpbox.Api.Leaderboards.Persistence
 {
-    public Task<Leaderboard> GetAsync(Guid id)
+    public class InMemoryLeaderboardsRepository : InMemoryRepository<Guid, Leaderboard>, ILeaderboardsRepository
     {
-        throw new NotImplementedException();
-    }
-
-    public Task<Leaderboard> CreateAsync(Leaderboard leaderboard)
-    {
-        throw new NotImplementedException();
-    }
-
-    public Task<Leaderboard> UpdateAsync(Leaderboard leaderboard)
-    {
-        throw new NotImplementedException();
-    }
-
-    public Task DeleteAsync(Guid id)
-    {
-        throw new NotImplementedException();
     }
 }
